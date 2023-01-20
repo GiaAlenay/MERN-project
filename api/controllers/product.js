@@ -20,4 +20,14 @@ const addProduct=async(req,res)=>{
         res.status(500).send({msg:error.message})
     }
 }
-module.exports={addProduct}
+
+const getProducts=async(req,res)=>{
+    try {
+        const productos=await Product.find().lean().exec()
+        res.status(200).send({productos})
+    } catch (error) {
+        res.status(500).send({msg:error.message})
+        
+    }
+}
+module.exports={addProduct,getProducts}
