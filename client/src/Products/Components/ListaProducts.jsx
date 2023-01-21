@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Loading } from "./Loading"
 import { useEffect } from "react"
 import { getProducts } from "../Services"
-export const ListProducts=()=>{
+const ListProducts=()=>{
     const [isLoading,setIsLoading]=useState(true)
     const [products,setProducts]=useState([])
 
@@ -25,3 +25,5 @@ export const ListProducts=()=>{
     }
     
 }
+
+export default ListProducts

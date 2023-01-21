@@ -1,10 +1,10 @@
 import { Container,Section,Button } from "react-bulma-components"
-export const AddButton=()=>{
+ const AddButton=({onClick})=>{
     return (
         <Section>
             <Container>
                 <div className="is-pulled-right">
-                    <Button color="primary">
+                    <Button color="primary" onClick={onClick}>
                         Add
                     </Button>
                 </div>
@@ -13,3 +13,5 @@ export const AddButton=()=>{
     )
 
 }
+
+export default AddButton
