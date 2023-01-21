@@ -4,7 +4,7 @@ import { Form as BulmaForm ,Button} from "react-bulma-components"
 
 const {Field, Control , Label , Input}=BulmaForm;
 
-const Form=()=>{
+const Form=({handleSubmit})=>{
 
     const [formValues, setFormValues]=useState({
         name:'',
@@ -20,13 +20,14 @@ const Form=()=>{
                     [name]:value})
     }
 
-    const handleSubmit=(e)=>{
+    const _handleSubmit=(e)=>{
         e.preventDefault()
+        handleSubmit({...formValues, image:inputfileRef.current.files[0]})
         console.log(formValues)
         console.log(inputfileRef.current.files)
     }
     return(
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={_handleSubmit}>
             <Field>
                 <Label>Name</Label>
                 <Control>

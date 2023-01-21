@@ -14,13 +14,22 @@ export const  getProducts=async()=>{
     }
 }
 
-export const  saveProduct=async(ProductData)=>{
+export const  saveProduct=async(productData)=>{
     try {
+        const formData=new FormData()
+
+        formData.append('name',productData.name)
+        formData.append('unitaryPrice',productData.priceUnitary)
+        formData.append('size',productData.size)
+        formData.append('description',productData.description)
+        formData.append('image',productData.image)
         const response= await axios({
             url:`${baseUrl}/products`,
             method:'POST',
-            data:ProductData
+            data:formData
         })
+        console.log('aqui',formData)
+        console.log(response)
         return response
     } catch (error) {
         console.log(error)

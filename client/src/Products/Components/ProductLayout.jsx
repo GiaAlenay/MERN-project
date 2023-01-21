@@ -4,8 +4,14 @@ import  AddButton  from './AddButton';
 import  ListProducts  from './ListaProducts';
 import Form from './form'
 import { useState } from 'react';
+import { saveProduct } from '../Services';
 const ProductLayout=()=>{
     const [isModalOpen,setIsModalOpen]=useState(false)
+
+    const handleSubmit=(data)=>{
+        saveProduct(data)
+    }
+
     return (
         <>
             <Header title='Product Layout' /> 
@@ -20,7 +26,7 @@ const ProductLayout=()=>{
                        </Modal.Card.Title>
                     </Modal.Card.Header>
                     <Modal.Card.Body>
-                        <Form/>
+                        <Form handleSubmit={handleSubmit}/>
                     </Modal.Card.Body>
                 </Modal.Card>
             </Modal>

@@ -9,8 +9,9 @@ const ListProducts=()=>{
     useEffect(()=>{
         async function loadProducts(){
             const response=await getProducts()
+            console.log('productos', response.data.products)
             if(response.status===200){
-                setProducts(response.data.products)
+                setProducts(response.data.productos)
             }
             setIsLoading(false)
         }
@@ -23,7 +24,9 @@ const ListProducts=()=>{
     if(!products?.length){
         return <h3 className="title has-text-centered"> You don't have products. </h3>
     }
-    
+    return (
+        'mostrar listado'
+    )
 }
 
 export default ListProducts
